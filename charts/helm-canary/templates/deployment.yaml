@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: helm-canary-main-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: helm-canary-main-app
+    spec:
+      containers:
+      - name: helm-canary-main-app
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        env: 
+        - name: APP_VERSION
+          value: "{{ .Values.image.tag }}"

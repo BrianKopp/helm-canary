@@ -1,0 +1,13 @@
+{{- if .Values.canary.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: helm-canary-canary-svc
+spec:
+  type: NodePort
+  ports:
+  - targetPort: 3000
+    protocol: TCP
+  selector:
+    app: helm-canary-canary-app
+{{- end }}

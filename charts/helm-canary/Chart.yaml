@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A canary deployment helm chart
+name: helm-canary
+version: v0.1.0
