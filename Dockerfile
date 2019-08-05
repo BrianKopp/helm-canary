@@ -9,6 +9,7 @@ RUN mkdir -p /usr/src/app && \
     chown node:node -R /usr/src/app
 
 WORKDIR /usr/src/app
+USER node
 
 COPY package*.json ./
 
