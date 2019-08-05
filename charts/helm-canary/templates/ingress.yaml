@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: helm-canary-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: false
+    kubernetes.io/ingress.class: nginx
+spec:
+ rules:
+ - http:
+     paths:
+     - path: /*
+       backend:
+        serviceName: helm-canary-main-svc
+        servicePort: 3000

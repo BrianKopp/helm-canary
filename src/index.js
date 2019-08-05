@@ -11,7 +11,12 @@ if (isCanary) {
 
 const app = express();
 app.get('/', (_, res) => {
-    res.send('Hi! I\'m using docker tag ' + dockerTag);
+    let message = '';
+    if (isCanary) {
+        message += 'CANARY ';
+    }
+    message += 'Hi! I\'m using docker tag ' + dockerTag + '\n';
+    res.send(message);
 });
 
 const server = app.listen(3000, () => {

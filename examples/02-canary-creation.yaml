@@ -1,0 +1,9 @@
+image:
+  name: briankopp/helm-canary
+  tag: "0.0.1"
+canary:
+  enabled: true
+  image:
+    name: briankopp/helm-canary
+    tag: "0.0.2"
+  trafficPct: 0
